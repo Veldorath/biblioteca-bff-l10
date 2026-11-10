@@ -33,6 +33,12 @@ export class PanelController {
     };
   }
 
+  @Get('en-vivo')
+  @Roles('bibliotecarios')
+  async enVivo() {
+    return this.panel.enVivo();
+  }
+
   @Post('prestamos')
   async prestar(
     @Req() req: { usuario: Usuario; headers: Record<string, string | undefined> },
